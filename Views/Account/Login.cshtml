@@ -1,0 +1,88 @@
+﻿@model VarelaCarWash.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Iniciar sesión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Fuente moderna -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #1E1E1E;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .login-card {
+        background-color: #FFFFFF;
+        border-radius: 12px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-detalle {
+        background-color: #D72638;
+        border: none;
+        font-weight: 600;
+    }
+
+        .btn-detalle:hover {
+            background-color: #b41f2d;
+        }
+
+    .link-naranja {
+        color: #F46036;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+        .link-naranja:hover {
+            text-decoration: underline;
+        }
+
+    h3 {
+        font-weight: 600;
+        color: #1E1E1E;
+    }
+
+    .text-label {
+        font-weight: 500;
+        color: #333;
+    }
+</style>
+
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="login-card">
+        <h3 class="text-center mb-4">Iniciar sesión</h3>
+
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage as string))
+        {
+            <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+        }
+
+        <form asp-action="Login" method="post">
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label text-label">Correo electrónico</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="Password" class="form-label text-label">Contraseña</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-detalle w-100 text-white">Entrar</button>
+        </form>
+
+        <div class="text-center mt-4">
+            <span class="text-muted">¿No tenés cuenta?</span>
+            <a href="/Account/Register" class="link-naranja"> Registrate aquí</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

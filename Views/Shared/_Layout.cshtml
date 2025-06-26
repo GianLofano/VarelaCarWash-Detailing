@@ -1,0 +1,75 @@
+﻿@{
+    var userId = Context.Session.GetInt32("UserId");
+    var currentPath = Context.Request.Path.ToString().ToLower();
+    var showNavbarItems = !(currentPath.Contains("login") || currentPath.Contains("register"));
+    var user = ViewBag.LoggedUser as VarelaCarWash.Models.User;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Varela Car Wash</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+<body style="background-color:#1e1e1e; color:#f8f9fa; font-family:'Segoe UI', sans-serif;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="/">Varela Car Wash</a>
+
+            @if (showNavbarItems && user != null)
+            {
+                <!-- Contenedor flexible para distribuir el contenido -->
+                <div class="d-flex justify-content-between w-100">
+                    <!-- Botones al centro -->
+                    <div class="mx-auto d-flex gap-2">
+                        <a href="/Productos" class="btn btn-outline-warning">
+                            <i class="bi bi-box-seam"></i> Productos
+                        </a>
+                        <a href="/Servicios" class="btn btn-outline-info">
+                            <i class="bi bi-tools"></i> Servicios
+                        </a>
+                    </div>
+
+                    <!-- Botón de Perfil a la derecha -->
+                    <div class="dropdown ms-auto">
+                        <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i> Perfil
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end bg-dark">
+                            <li class="dropdown-item text-white"><strong>@user.FullName</strong></li>
+                            <li class="dropdown-item" style="color: #ced4da;">@user.Email</li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <form method="post" action="/Account/Logout">
+                                    <button class="dropdown-item text-danger" type="submit">
+                                        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </nav>
+
+
+    <div class="container" style="padding-top: 100px;">
+        @RenderBody()
+    </div>
+
+    <footer class="text-center mt-5 text-muted">
+        <p>© 2025 - Varela Car Wash - <a href="/Home/Privacy" class="text-decoration-none text-light">Privacy</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("Scripts", required: false)
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>

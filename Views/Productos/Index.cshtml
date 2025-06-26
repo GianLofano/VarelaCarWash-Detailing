@@ -1,0 +1,36 @@
+@model List<VarelaCarWash.Models.Product>
+
+<h2>Productos</h2>
+<a href="/Productos/Nuevo" class="btn btn-success mb-2">Nuevo Producto</a>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Id</td>
+                <td>@p.Nombre</td>
+                <td>@p.Categoria</td>
+                <td>$@p.Precio</td>
+                <td>@p.Stock</td>
+                <td>
+                    <a href="/Productos/Editar/@p.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <form asp-action="Eliminar" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@p.Id" />
+                        <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

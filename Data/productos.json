@@ -1,0 +1,9 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "a",
+    "Categoria": "Limpieza interior",
+    "Precio": 12,
+    "Stock": 0
+  }
+]
