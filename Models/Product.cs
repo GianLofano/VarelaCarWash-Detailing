@@ -7,5 +7,7 @@ namespace VarelaCarWash.Models
         public string Categoria { get; set; }
         public decimal Precio { get; set; }
         public int Stock { get; set; }
+        public string? ImagenPath { get; set; } // Ruta de la imagen
+        public string? Descripcion { get; set; } // Descripción del producto
     }
 }

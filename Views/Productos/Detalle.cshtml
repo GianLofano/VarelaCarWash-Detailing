@@ -1,0 +1,20 @@
+@model VarelaCarWash.Models.Product
+@{
+    ViewData["Title"] = "Detalle del Producto";
+}
+<div class="container mt-4">
+    <div class="card bg-dark text-light mx-auto" style="max-width: 600px;">
+        @if (!string.IsNullOrEmpty(Model.ImagenPath))
+        {
+            <img src="@Url.Content(Model.ImagenPath)" class="card-img-top" alt="@Model.Nombre" style="max-height:300px;object-fit:contain;" />
+        }
+        <div class="card-body">
+            <h2 class="card-title">@Model.Nombre</h2>
+            <h4 class="text-warning">$@Model.Precio</h4>
+            <p class="mb-1"><strong>Categoría:</strong> @Model.Categoria</p>
+            <p class="mb-1"><strong>Stock:</strong> @Model.Stock unidades</p>
+            <p class="mt-3">@Model.Descripcion</p>
+            <a href="/" class="btn btn-outline-light mt-2">Volver</a>
+        </div>
+    </div>
+</div>

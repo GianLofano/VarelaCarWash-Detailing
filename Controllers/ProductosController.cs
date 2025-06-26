@@ -19,10 +19,24 @@ namespace VarelaCarWash.Controllers
         }
 
         [HttpPost]
-        public IActionResult Nuevo(Product producto)
+        public IActionResult Nuevo(Product producto, IFormFile Imagen)
         {
+            if (Imagen != null && Imagen.Length > 0)
+            {
+                var fileName = $"product_{Guid.NewGuid()}{Path.GetExtension(Imagen.FileName)}";
+                var filePath = Path.Combine("wwwroot/images/products", fileName);
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    Imagen.CopyTo(stream);
+                }
+                producto.ImagenPath = $"/images/products/{fileName}";
+            }
             if (!ModelState.IsValid)
                 return View(producto);
+
+            // Descripcion se toma del form
+            producto.Descripcion = Request.Form["Descripcion"];
 
             JsonProductoService.Agregar(producto);
             return RedirectToAction("Index");
@@ -35,9 +49,31 @@ namespace VarelaCarWash.Controllers
             return View(producto);
         }
 
-        [HttpPost]
-        public IActionResult Editar(Product producto)
+        public IActionResult Detalle(int id)
         {
+            var producto = JsonProductoService.ObtenerPorId(id);
+            if (producto == null)
+                return NotFound();
+            return View(producto);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Product producto, IFormFile Imagen)
+        {
+            if (Imagen != null && Imagen.Length > 0)
+            {
+                var fileName = $"product_{Guid.NewGuid()}{Path.GetExtension(Imagen.FileName)}";
+                var filePath = Path.Combine("wwwroot/images/products", fileName);
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    Imagen.CopyTo(stream);
+                }
+                producto.ImagenPath = $"/images/products/{fileName}";
+            }
+            // Descripcion se toma del form
+            producto.Descripcion = Request.Form["Descripcion"];
+
             JsonProductoService.Editar(producto);
             return RedirectToAction("Index");
         }

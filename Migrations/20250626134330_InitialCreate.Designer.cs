@@ -12,8 +12,8 @@ using VarelaCarWash.Models;
 namespace VarelaCarWash.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250529193656_InicialCreate")]
-    partial class InicialCreate
+    [Migration("20250626134330_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,19 +116,15 @@ namespace VarelaCarWash.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Categoria")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Price")
+                    b.Property<decimal>("Precio")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Stock")
@@ -147,18 +143,15 @@ namespace VarelaCarWash.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal>("Precio")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -173,10 +166,6 @@ namespace VarelaCarWash.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()

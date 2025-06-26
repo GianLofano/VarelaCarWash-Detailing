@@ -1,9 +1,47 @@
 [
   {
     "Id": 1,
-    "Nombre": "a",
+    "Nombre": "Shampoo para autos sin cera",
+    "Categoria": "Limpieza exterior",
+    "Precio": 8000,
+    "Stock": 200,
+    "ImagenPath": "/images/products/product_8201e59c-d343-478e-a8eb-a92f6006f6fd.jpg",
+    "Descripcion": "Dise\u00F1ado para limpiar la superficie del veh\u00EDculo sin dejar residuos ni afectar ceras o selladores aplicados. Ideal para lavados frecuentes."
+  },
+  {
+    "Id": 2,
+    "Nombre": "Limpiador de interiores multiuso",
     "Categoria": "Limpieza interior",
-    "Precio": 12,
-    "Stock": 0
+    "Precio": 14000,
+    "Stock": 120,
+    "ImagenPath": "/images/products/product_3b464b94-3fbf-4f98-a237-fb0cfd517ad0.png",
+    "Descripcion": "Producto seguro para tapizados, pl\u00E1sticos y vinilos. Remueve manchas, polvo y suciedad sin da\u00F1ar los materiales del interior del veh\u00EDculo."
+  },
+  {
+    "Id": 3,
+    "Nombre": "Clay Bar (barra descontaminante)",
+    "Categoria": "Limpieza exterior",
+    "Precio": 35000,
+    "Stock": 40,
+    "ImagenPath": "/images/products/product_38aa67cd-3556-408d-81df-5bfa26d4063d.png",
+    "Descripcion": "Una barra de arcilla que elimina contaminantes adheridos a la pintura que no salen con un lavado com\u00FAn, como savia, alquitr\u00E1n o residuos industriales."
+  },
+  {
+    "Id": 4,
+    "Nombre": "Pulidor de pintura (Polish)",
+    "Categoria": "Ceras y siliconas",
+    "Precio": 40000,
+    "Stock": 90,
+    "ImagenPath": "/images/products/product_ef517ca5-9bee-43bd-a569-883c24db8095.png",
+    "Descripcion": "Producto abrasivo suave que ayuda a eliminar microara\u00F1azos, marcas de remolino y oxidaci\u00F3n ligera. Restaura el brillo de la pintura."
+  },
+  {
+    "Id": 5,
+    "Nombre": "Sellador cer\u00E1mico (Ceramic Coating)",
+    "Categoria": "Ceras y siliconas",
+    "Precio": 80000,
+    "Stock": 32,
+    "ImagenPath": "/images/products/product_0888056f-3b13-423a-ba00-71560e66db75.png",
+    "Descripcion": "Protecci\u00F3n avanzada que se adhiere qu\u00EDmicamente a la pintura, formando una capa hidrof\u00F3bica duradera que protege contra suciedad, rayos UV y qu\u00EDmicos."
   }
 ]

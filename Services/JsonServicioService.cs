@@ -41,6 +41,7 @@ namespace VarelaCarWash.Services
                 existente.Nombre = servicio.Nombre;
                 existente.Descripcion = servicio.Descripcion;
                 existente.Precio = servicio.Precio;
+                existente.ImagenPath = servicio.ImagenPath; // Actualiza la imagen si corresponde
                 Guardar(servicios);
             }
         }

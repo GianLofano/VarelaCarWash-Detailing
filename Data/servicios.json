@@ -1,8 +1,16 @@
 [
   {
     "Id": 1,
-    "Nombre": "a",
-    "Descripcion": "djcdsj\r\n",
-    "Precio": 1500
+    "Nombre": "Lavado b\u00E1sico",
+    "Descripcion": "Lavado de exterior con shampoo sin cera y aspirado de interior\r\n",
+    "Precio": 9000,
+    "ImagenPath": "/images/services/service_03ba15ff-26cf-4600-bd65-7aac964d134a.png"
+  },
+  {
+    "Id": 2,
+    "Nombre": "Tratamiento cer\u00E1mico",
+    "Descripcion": "Protecci\u00F3n avanzada que se adhiere qu\u00EDmicamente a la pintura, formando una capa hidrof\u00F3bica duradera que protege contra suciedad, rayos UV y qu\u00EDmicos.",
+    "Precio": 150000,
+    "ImagenPath": "/images/services/service_1a0adb08-b769-4560-83bb-371cb90091a2.png"
   }
 ]

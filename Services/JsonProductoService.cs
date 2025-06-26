@@ -41,6 +41,8 @@ namespace VarelaCarWash.Services
                 existente.Categoria = producto.Categoria;
                 existente.Precio = producto.Precio;
                 existente.Stock = producto.Stock;
+                existente.ImagenPath = producto.ImagenPath; // Actualiza la imagen si corresponde
+                existente.Descripcion = producto.Descripcion; // Actualiza la descripción
                 Guardar(productos);
             }
         }
